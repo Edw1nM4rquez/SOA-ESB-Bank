@@ -3,11 +3,50 @@
         <div class="header-body">
             <!--Boton Imprimir-->
             <p>account works!</p>
-            <button class="btn btn-icon btn-3 btn-primary" type="button" (click)="CargarDatos()" >
+            <button class="btn btn-icon btn-3 btn-primary" type="button" (click)="CargarDatos()">
                 <span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span>
-                <span class="btn-inner--text">Consulta GET</span>
-              </button>
-
+                <span class="btn-inner--text">Consultar Usuario</span>
+            </button>
+            
+            <div class="table-responsive" style="padding: 10px 10px; background-color: aliceblue;">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Titular</th>
+                            <th scope="col">CI</th>
+                            <th scope="col">Banco</th>
+                            <th scope="col">Monto</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of groupCuenta">
+                            <th scope="row">
+                                <div class="avatar-group">
+                                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip"
+                                        data-original-title="Ryan Tompson">
+                                        <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg"
+                                            class="rounded-circle">
+                                    </a>
+                                            <h5>{{item.titular}}</h5>
+                                </div>
+                            </th>
+                            <td>
+                                <h5>{{item.ci}}</h5>
+                            </td>
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <i class="bg-warning"></i>  <h5>{{item.banco}}</h5>
+                                </span>
+                            </td>
+                            <td>
+                                <!--Aqui va el monto-->
+                                {{item.monto}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

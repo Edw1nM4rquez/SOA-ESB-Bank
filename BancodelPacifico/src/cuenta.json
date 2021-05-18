@@ -1,10 +1,11 @@
 [
     {
         "cuenta": {
-            "nombre": "EdwinMarquez",
-            "ci": "0302127994",
+            "id": "0c8fdce0-6d5c-4f17-8a09-3e802fcfafd3",
+            "titular": "Edwin Marquez",
+            "ci": "0303127566",
             "banco": "Banco del Pacifico",
-            "monto": 10.00
+            "monto": 400.00
         }
     }
 ]

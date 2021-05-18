@@ -10,6 +10,7 @@ import { AccountService } from 'src/app/services/account.service';
 export class AccountComponent implements OnInit {
 
   public subscribes: Subscription[] = [];
+  public groupCuenta: any[];
 
   constructor(
     private accountService: AccountService
@@ -34,7 +35,9 @@ async CargarDatos(){
   console.log("Si entro al metodo ")
 
   let cuenta = await this.accountService.getAccount().subscribe(res=>{
-    console.log("Ahora Si", res)
+ 
+    this.groupCuenta = res.map((item:any)=>{return{id:item.cuenta.id,titular:item.cuenta.titular,ci:item.cuenta.ci,banco:item.cuenta.banco,monto:item.cuenta.monto}});
+    
   });
 
   this.subscribes.push(

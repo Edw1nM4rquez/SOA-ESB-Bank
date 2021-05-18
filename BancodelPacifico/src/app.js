@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const path= require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 //Setting
 app.set('port', 5000);
 app.set('views',path.join(__dirname, 'views'));
 app.set('view engine','ejs');
+app.use(cors());
 
 //middlewares
 app.use(morgan('dev'));
