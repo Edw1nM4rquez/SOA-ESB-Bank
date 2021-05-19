@@ -1,27 +1,20 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
-            <!--Boton Imprimir-->
-            <p>account works!</p>
-            <button class="btn btn-icon btn-3 btn-primary" type="button" (click)="CargarDatos()">
-                <span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span>
-                <span class="btn-inner--text">Consultar Usuario</span>
-            </button>
-            
+            <p>view-transaccion works!</p>
             <div class="table-responsive" style="padding: 10px 10px; background-color: aliceblue;">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">Titular</th>
-                            <th scope="col">CI</th>
-                            <th scope="col">Banco</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Monto</th>
-                            <th scope="col">Transacciones</th>
+                            <th scope="col">Tipo</th>
+                           
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of groupCuenta">
+                        <tr *ngFor="let item of groupTransacciones">
                             <th scope="row">
                                 <div class="avatar-group">
                                     <a href="#" class="avatar avatar-sm" data-toggle="tooltip"
@@ -29,33 +22,22 @@
                                         <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg"
                                             class="rounded-circle">
                                     </a>
-                                            <h5>{{item.titular}}</h5>
+                                            <h5>{{item.id}}</h5>
                                 </div>
                             </th>
                             <td>
-                                <h5>{{item.ci}}</h5>
+                                <h5>{{item.monto}}</h5>
                             </td>
                             <td>
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i>  <h5>{{item.banco}}</h5>
+                                    <i class="bg-warning"></i>  <h5>{{item.tipo}}</h5>
                                 </span>
                             </td>
-                            <td>
-                                <!--Aqui va el monto-->
-                                {{item.monto}}
-                            </td>
-                            <td>
-                                
-                                <a class="btn btn-primary" href="/#/transaccion" >
-                                    Ver Transacciones
-                                    </a>
-                            </td>
+                           
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary" type="button">Deposito</button>
-
         </div>
     </div>
 </div>

@@ -13,6 +13,7 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from 'src/app/pages/account/account.component';
+import { ViewTransaccionComponent } from 'src/app/pages/view-transaccion/view-transaccion.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AccountComponent } from 'src/app/pages/account/account.component';
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    AccountComponent
+    AccountComponent,
+    ViewTransaccionComponent
   ]
 })
 

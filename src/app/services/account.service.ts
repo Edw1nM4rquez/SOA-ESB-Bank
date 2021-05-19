@@ -18,4 +18,8 @@ export class AccountService {
  getAccount(){
    return this.http.get(`${ baseUrl }/GetAcoountApi/`).pipe(map((data:any) => data));
  } 
+ 
+ getTransaccion(){
+  return this.http.get(`${ baseUrl }/GetTransaccions/`).pipe(map((data:any) => data));
+} 
 }

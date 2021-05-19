@@ -6,6 +6,7 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { AccountComponent } from 'src/app/pages/account/account.component';
+import { ViewTransaccionComponent } from 'src/app/pages/view-transaccion/view-transaccion.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -14,5 +15,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'account',           component: AccountComponent },
+    { path: 'transaccion',           component: ViewTransaccionComponent },
 
 ];

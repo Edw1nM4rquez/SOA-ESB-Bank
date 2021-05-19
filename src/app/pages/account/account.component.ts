@@ -32,7 +32,6 @@ async loadData(){
 }
 
 async CargarDatos(){
-  console.log("Si entro al metodo ")
 
   let cuenta = await this.accountService.getAccount().subscribe(res=>{
  
