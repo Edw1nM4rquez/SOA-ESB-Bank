@@ -14,6 +14,7 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountComponent } from 'src/app/pages/account/account.component';
 import { ViewTransaccionComponent } from 'src/app/pages/view-transaccion/view-transaccion.component';
+import { LibrosComponent } from 'src/app/pages/libros/libros.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ViewTransaccionComponent } from 'src/app/pages/view-transaccion/view-tr
     IconsComponent,
     MapsComponent,
     AccountComponent,
-    ViewTransaccionComponent
+    ViewTransaccionComponent,
+    LibrosComponent
   ]
 })
 

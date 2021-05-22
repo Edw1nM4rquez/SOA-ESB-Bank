@@ -22,4 +22,9 @@ export class AccountService {
  getTransaccion(){
   return this.http.get(`${ baseUrl }/GetTransaccions/`).pipe(map((data:any) => data));
 } 
+
+getLibros(){
+  return this.http.get(`${ baseUrl }/getLibros/`).pipe(map((data:any) => data));
+} 
+
 }
