@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="header-body">
             <!--Boton Imprimir-->
-            <p>account works!</p>
+            <h1 style="padding: 10px 10px; text-align: center;"> CUENTA DE USUARIO</h1>
             <button class="btn btn-icon btn-3 btn-primary" type="button" (click)="CargarDatos()">
                 <span class="btn-inner--icon"><i class="ni ni-bag-17"></i></span>
-                <span class="btn-inner--text">Consultar Usuario</span>
+                <span class="btn-inner--text">Ver cuenta de Usuario</span>
             </button>
-            
+
             <div class="table-responsive" style="padding: 10px 10px; background-color: aliceblue;">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
@@ -29,7 +29,7 @@
                                         <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg"
                                             class="rounded-circle">
                                     </a>
-                                            <h5>{{item.titular}}</h5>
+                                    <h5>{{item.titular}}</h5>
                                 </div>
                             </th>
                             <td>
@@ -37,7 +37,8 @@
                             </td>
                             <td>
                                 <span class="badge badge-dot mr-4">
-                                    <i class="bg-warning"></i>  <h5>{{item.banco}}</h5>
+                                    <i class="bg-warning"></i>
+                                    <h5>{{item.banco}}</h5>
                                 </span>
                             </td>
                             <td>
@@ -45,17 +46,77 @@
                                 {{item.monto}}
                             </td>
                             <td>
-                                
-                                <a class="btn btn-primary" href="/#/transaccion" >
+
+                                <a class="btn btn-primary" href="/#/transaccion">
                                     Ver Transacciones
-                                    </a>
+                                </a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary" type="button">Deposito</button>
+            <div style="padding: 10px 10px;">
+                <button class="btn btn-primary" (click)="senActivacion(true)" type="button"> Realizar transaccion
+                </button>
 
+            </div>
+
+            <div class="container" *ngIf="auxFlag">
+                <div class="card" style="padding: 10px 10px;">
+                    <form autocomplete="off" [formGroup]="angForm" id="loginForm" (ngSubmit)="senDepositop()">
+
+                        <div class="form-group">
+
+                            <label for="exampleFormControlSelect1">Tipo de Transaccion</label>
+                            <select class="form-control" formControlName="typeTransfer" id="exampleFormControlSelect1">
+                                <option>Retiro</option>
+                                <option>Deposito</option>
+                                <option>Transferencia</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Numero cuenta remitente</label>
+                            <input type="text" class="form-control" formControlName="account"
+                                id="exampleFormControlInput1" placeholder="123456">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Banco Remitente</label>
+                            <select class="form-control" id="exampleFormControlSelect1" formControlName="banck">
+                                <option>Banco del Pacifico</option>
+                                <option>Banco del Pinchincha</option>
+                                <option>Ban Ecuador</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Numero cuenta destino</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                formControlName="accountDes" placeholder="123456">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Banco destino</label>
+                            <select class="form-control" id="exampleFormControlSelect1" formControlName="banckDes">
+                                <option>Banco del Pacifico</option>
+                                <option>Banco del Pinchincha</option>
+                                <option>Ban Ecuador</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Monto</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                formControlName="monto" placeholder="000.00 $">
+                        </div>
+                        <button style="align-items: center;" type="button" (click)="senActivacion(false)"
+                            class="btn btn-primary">Cancelar </button>
+                        <button style="align-items: center;" type="submit" class="btn btn-primary">Realizar
+                            transferencia</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

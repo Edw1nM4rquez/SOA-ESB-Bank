@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { map } from 'rxjs/operators';
@@ -26,5 +26,14 @@ export class AccountService {
 getLibros(){
   return this.http.get(`${ baseUrl }/getLibros/`).pipe(map((data:any) => data));
 } 
+
+sendTransferencia(object: any ){
+  console.log("Objecto lle", object)
+  let params = new HttpParams();
+  params= params.append('monto', object.monto);
+  params = params.append('banckDes', object.banck);
+
+  return this.http.get(`${ baseUrl }/postListener/`,{params: params});
+}
 
 }

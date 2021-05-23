@@ -49,6 +49,10 @@ router.get('/deposito', (req, res) => {
     res.render('Deposito');
 });
 
+router.post('/despositoEj',(req,res)=>{
+ console.log("Parametros",req.body),
+ res.send(req.body);
+});
 
 router.post('/deposito', (req, res) => {
 
