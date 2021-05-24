@@ -37,7 +37,7 @@ export class AccountComponent implements OnInit {
 
   createForm() {
     this.angForm = this.fb.group({
-      tipo:[null, Validators.required],
+      tipo:['Transferencia', Validators.required],
       bandest:[null, Validators.required],
       banorigen:[null, Validators.required],
       monto:[null, Validators.required]
@@ -69,5 +69,7 @@ export class AccountComponent implements OnInit {
     error => { console.log("err", error) });
     this.subscribes.push(sendTrans);
   }
-
+get tipo(){
+  return this.angForm.get('tipo').value;
+}
 }
