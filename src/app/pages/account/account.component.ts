@@ -75,6 +75,6 @@ export class AccountComponent implements OnInit {
     return this.angForm.get('tipo').value;
   }
 
-  
+  //Comment
 
 }
