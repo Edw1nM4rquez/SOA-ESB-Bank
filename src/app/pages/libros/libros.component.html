@@ -1,0 +1,30 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+            <!--Desde aqui-->
+            <div class="container p-4">
+                <div class="row">
+                        <div class="col-md-4"  *ngFor="let item of groupLibros">
+                            <div class="card">
+                                <div class="card-header">
+                                   {{item.title}} / {{item.autor}}
+                                </div>
+                                <img src="{{item.image}}" class="card-img-top">
+                                <div class="card-body">
+                                    <p>
+                                        {{item.description}}
+                                       
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-danger" href="/delete/<%= libros.user.id %>">
+                                        Comprar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

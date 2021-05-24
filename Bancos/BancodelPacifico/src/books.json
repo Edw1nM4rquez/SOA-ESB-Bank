@@ -1,0 +1,29 @@
+[
+    {
+        "user": {
+            "id": "dfb188d7-7060-4c4f-9519-addc1404ac06",
+            "title": " Un Grito Deseperado Carlos ",
+            "autor": " Carlos Cuahutemoc ",
+            "imagen": "https://i.pinimg.com/originals/fa/3f/ce/fa3fce7e0d8fcafb519bf44031b67f45.jpg",
+            "description": "Muy buena"
+        }
+    },
+    {
+        "user": {
+            "id": "3935c86c-f94c-4492-90f8-a9770dc0212e",
+            "title": "\"JUVENTUD EN ÉXTASIS\"",
+            "autor": "Carlos Cuauhttemoc Sanchez",
+            "imagen": "https://i.ebayimg.com/images/g/F80AAOSw72NdDYyn/s-l400.jpg",
+            "description": "Muy bueno"
+        }
+    },
+    {
+        "user": {
+            "id": "53d13783-747b-4847-9dd0-34d84b642034",
+            "title": "Volar sobre el pantano",
+            "autor": "Carlos Cuauhttemoc Sanchez",
+            "imagen": "https://images.bajalibros.com/nfY_qjDRHarkI13oFaU7T0fhBmU=/fit-in/292x446/filters:fill(f8f8f8):quality(90):format(webp)/d2d6tho5fth6q4.cloudfront.net/extast15655_eb38583e5f7a83be14c10730b0bbc180d891a936_cover.jpg",
+            "description": "Muy buena"
+        }
+    }
+]

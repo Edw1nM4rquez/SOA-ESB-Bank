@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include("partials/header")%>
+        <title>New book </title>
+</head>
+
+<body>
+    <%-include("partials/navigation") %>
+        <div class="container p-4" style="width: 50%;">
+
+            <div class="card" style="padding: 10px 10px;">
+                <label style="text-align: center;">Datos del Usuario</label>
+                <div class="container">
+                    <% cuentas.forEach(function (cuenta){ %>
+                        <div class="container">
+                            <div class="row row-cols-2">
+                                <div class="card">Nombre :</div>
+                                <div class="card">
+                                    <%= cuenta.cuenta.titular %>
+                                </div>
+                                <div class="card">C.I :</div>
+                                <div class="card">
+                                    <%= cuenta.cuenta.ci %>
+                                </div>
+                                <div class="card">Nombre del Banco :</div>
+                                <div class="card">
+                                    <%= cuenta.cuenta.banco %>
+                                </div>
+                                <div class="card">Monto :</div>
+                                <div class="card">
+                                    <%= cuenta.cuenta.monto %>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+                <br>
+                <div class="card-footer">
+                    <a class="btn btn-danger" href="/deposito">
+                         Deposito
+                    </a>
+                </div>
+                <br>
+                <input type="" value="Realizar Retiro" class="btn btn-primary">
+            </div>
+           
+        </div>
+</body>
+
+</html>

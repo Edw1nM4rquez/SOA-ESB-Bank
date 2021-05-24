@@ -1,0 +1,43 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+            <h1 style="text-align: center; padding: 10px 10px;">Transacciones del Usuario</h1>
+            <div class="table-responsive" style="padding: 10px 10px; background-color: aliceblue;">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Monto</th>
+                            <th scope="col">Tipo</th>
+                           
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of groupTransacciones">
+                            <th scope="row">
+                                <div class="avatar-group">
+                                    <a href="#" class="avatar avatar-sm" data-toggle="tooltip"
+                                        data-original-title="Ryan Tompson">
+                                        <img alt="Image placeholder" src="assets/img/theme/team-1-800x800.jpg"
+                                            class="rounded-circle">
+                                    </a>
+                                            <h5>{{item.id}}</h5>
+                                </div>
+                            </th>
+                            <td>
+                                <h5>{{item.monto}}</h5>
+                            </td>
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <i class="bg-warning"></i>  <h5>{{item.tipo}}</h5>
+                                </span>
+                            </td>
+                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

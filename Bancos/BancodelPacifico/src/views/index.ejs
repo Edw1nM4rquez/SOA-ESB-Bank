@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include("partials/header")%>
+        <title>Hello World</title>
+</head>
+
+<body>
+ <%-include("partials/navigation") %>
+
+    <div class="container p-4">
+        <div class="row">
+            <% books.forEach(function (libros){ %>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <%= libros.user.title %> / <%= libros.user.autor %>
+                        </div>
+                        <img src="<%= libros.user.imagen %>" class="card-img-top">
+                        <div class="card-body">
+                            <p>
+                                <%= libros.user.description %>
+                                <br>
+                                <%= libros.user.id %>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-danger" href="/delete/<%= libros.user.id %>">
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+
+</body>
+
+</html>
