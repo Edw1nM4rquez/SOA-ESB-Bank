@@ -37,11 +37,9 @@ export class AccountComponent implements OnInit {
 
   createForm() {
     this.angForm = this.fb.group({
-      typeTransfer:[null, Validators.required],
-      account:[null, Validators.required],
-      banck:[null, Validators.required],
-      accountDes:[null, Validators.required],
-      banckDes:[null, Validators.required],
+      tipo:[null, Validators.required],
+      bandest:[null, Validators.required],
+      banorigen:[null, Validators.required],
       monto:[null, Validators.required]
     });
   }

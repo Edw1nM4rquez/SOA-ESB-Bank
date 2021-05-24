@@ -1,12 +1,11 @@
 [
     {
         "cuenta": {
-            "id": "0c8fdce0-6d5c-4f17-8a09-3e802fcfafd3",
+            "id": 521452,
             "titular": "Christian Zhirzhan",
             "ci": "0303127566",
             "banco": "Banco del Pacifico",
-            "monto": 400.00
+            "monto": 410
         }
     }
-    
 ]

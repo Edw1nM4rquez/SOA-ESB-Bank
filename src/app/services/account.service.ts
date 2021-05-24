@@ -30,8 +30,11 @@ getLibros(){
 sendTransferencia(object: any ){
   console.log("Objecto lle", object)
   let params = new HttpParams();
+
   params= params.append('monto', object.monto);
-  params = params.append('banckDes', object.banck);
+  params = params.append('bandest', object.bandest);
+  params= params.append('banorigen', object.banorigen);
+  params = params.append('tipo', object.tipo);
 
   return this.http.get(`${ baseUrl }/postListener/`,{params: params});
 }

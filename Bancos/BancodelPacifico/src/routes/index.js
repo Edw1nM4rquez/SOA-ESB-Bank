@@ -76,10 +76,10 @@ router.post('/comprobarFondos',(req,res)=>{
 router.post('/transferencia', function (req, res) {
     var monto = req.body.monto;
     var tipo = req.body.tipo;
-    var bancodest = req.body.bancodest;
-    var bancoorigen = req.body.bancoorigen;
+    var bancodest = req.body.bandest;
+    var bancoorigen = req.body.banorigen;
 
-     console.log("tipo = "+tipo+", monto "+monto);
+     console.log("BANCO DEL PACIFICO = "+"tipo = "+tipo+", monto "+monto);
   
     let newTransaccion = {
         "transaccion": {
@@ -91,6 +91,7 @@ router.post('/transferencia', function (req, res) {
         }
     }
 
+
     let updateCuenta = {
         "cuenta": {
             id: cuentas[0].cuenta.id,
@@ -101,7 +102,7 @@ router.post('/transferencia', function (req, res) {
         }
 
     }
-    cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 1);
+    cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 521452);
     const jsnCuentas = JSON.stringify(cuentas);
     fs.writeFileSync('src/cuenta.json', jsnCuentas, 'utf-8');
 
