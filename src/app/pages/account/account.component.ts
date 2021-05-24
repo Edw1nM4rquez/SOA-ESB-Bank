@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -15,10 +15,11 @@ export class AccountComponent implements OnInit {
   public auxFlag: boolean;
   public angForm: FormGroup;
 
+
   constructor(
     private accountService: AccountService,
     private fb: FormBuilder,
-  ) { 
+  ) {
     this.createForm();
   }
 
@@ -37,10 +38,10 @@ export class AccountComponent implements OnInit {
 
   createForm() {
     this.angForm = this.fb.group({
-      tipo:['Transferencia', Validators.required],
-      bandest:[null, Validators.required],
-      banorigen:[null, Validators.required],
-      monto:[null, Validators.required]
+      tipo: ['Transferencia', Validators.required],
+      bandest: [null, Validators.required],
+      banorigen: [null, Validators.required],
+      monto: [null, Validators.required]
     });
   }
 
@@ -62,14 +63,18 @@ export class AccountComponent implements OnInit {
     return this.auxFlag;
   }
 
-  async senDepositop(){
-    let sendTrans = await this.accountService.sendTransferencia(this.angForm.value).subscribe(res=>{
+  async senDepositop() {
+    let sendTrans = await this.accountService.sendTransferencia(this.angForm.value).subscribe(res => {
       console.log("por", res);
     },
-    error => { console.log("err", error) });
+      error => { console.log("err", error) });
     this.subscribes.push(sendTrans);
   }
-get tipo(){
-  return this.angForm.get('tipo').value;
-}
+
+  get tipo() {
+    return this.angForm.get('tipo').value;
+  }
+
+  //Comment
+
 }

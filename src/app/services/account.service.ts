@@ -57,5 +57,5 @@ export class AccountService {
 
     return this.http.get(`${baseUrl}/${this.Url}/`, { params: params });
   }
-
+  
 }
