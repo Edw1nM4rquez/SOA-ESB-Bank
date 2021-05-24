@@ -48,6 +48,7 @@ router.post('/comprobarFondos', (req, res) => {
 
     if (parseFloat(monto) > parseFloat(cuentas[0].cuenta.monto)) {
         console.log('NO TIENE FONDOS');
+        return;
 
 
     } else {
