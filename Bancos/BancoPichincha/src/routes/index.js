@@ -37,27 +37,6 @@ router.get('/transaccion', (req, res) => {
     res.send(transacciones)
 });
 
-router.get('/new-entry', (req, res) => {
-    res.render('new-entry');
-});
-
-router.get('/mi-cuentaBank', (req, res) => {
-    res.render('mi-cuentaBank');
-});
-
-router.get('/deposito', (req, res) => {
-    res.render('Deposito');
-});
-
-router.post('/despositoEj', (req, res) => {
-    console.log("Parametros", req.body),
-        res.send(req.body);
-});
-
-router.post('/despositoExec', (req, res) => {
-    console.log("Parametros deposito exect", req.body),
-        res.send(req.body);
-});
 
 
 router.post('/comprobarFondos', (req, res) => {
@@ -112,116 +91,48 @@ router.post('/comprobarFondos', (req, res) => {
     res.send();
 });
 
+router.post('/transferencia', function (req, res) {
+    var monto = req.body.monto;
+    var tipo = req.body.tipo;
+    var bancodest = req.body.bandest;
+    var bancoorigen = req.body.banorigen;
 
-
-
-
-router.post('/deposito', (req, res) => {
-
-    const { cantidad } = req.body;
-    if (!cantidad) {
-        res.status(400).send('Entries must have a title and description');
-        return;
+     console.log("BANCO DEL PACIFICO = "+"tipo = "+tipo+", monto "+monto);
+  
+    let newTransaccion = {
+        "transaccion": {
+            id: uuidv4(),
+            monto,
+            tipo,
+            bancodest,
+            bancoorigen
+        }
     }
-    let auxCantidad = parseFloat(cantidad)
-    let auxCantidadA = parseFloat(cuentas[0].cuenta.monto)
-    let resultado = auxCantidadA + auxCantidad;
+
 
     let updateCuenta = {
-        cuenta: {
+        "cuenta": {
             id: cuentas[0].cuenta.id,
             titular: cuentas[0].cuenta.titular,
             ci: cuentas[0].cuenta.ci,
             banco: cuentas[0].cuenta.banco,
-            monto: resultado
+            monto: parseFloat(cuentas[0].cuenta.monto) + parseFloat(monto)
         }
+
     }
+    cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 1201245);
+    const jsnCuentas = JSON.stringify(cuentas);
+    fs.writeFileSync('src/cuenta.json', jsnCuentas, 'utf-8');
 
-    let updateTranssacicon = {
-        transaccion: {
-            id: transacciones[0].transaccion.id,
-            monto: resultado,
-            tipo: transacciones[0].transaccion.tipo,
-            cuenta: {
-                id: cuentas[0].cuenta.id,
-                titular: cuentas[0].cuenta.titular,
-                ci: cuentas[0].cuenta.ci,
-                banco: cuentas[0].cuenta.banco,
-                monto: resultado
-            }
-        }
-    }
-
-    cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 1);
-    transacciones = transacciones.filter(trans => trans.transaccion.id != 1);
-
-    transacciones.push(updateTranssacicon);
     cuentas.push(updateCuenta);
+    const jsnCuentasE = JSON.stringify(cuentas);
+    fs.writeFileSync('src/cuenta.json', jsnCuentasE, 'utf-8');
 
-    const jsonCuentas = JSON.stringify(cuentas);
-    fs.writeFileSync('src/cuenta.json', jsonCuentas, 'utf-8');
-
-    const jsonTransaccion = JSON.stringify(transacciones);
-    fs.writeFileSync('src/transacciones.json', jsonTransaccion, 'utf-8');
-
-    res.redirect('/transaccion');
-
-
-});
-
-
-router.post('/new-entry', (req, res) => {
-    const { title, autor, imagen, description } = req.body;
-
-    if (!title || !autor || !imagen || !description) {
-        res.status(400).send('Entries must have a title and description');
-        return;
-    }
-    let newBook = {
-        "user": {
-            id: uuidv4(),
-            title,
-            autor,
-            imagen,
-            description
-        }
-    }
-
-    books.push(newBook);
-    const jsonBooks = JSON.stringify(books);
-    fs.writeFileSync('src/books.json', jsonBooks, 'utf-8');
+    transacciones.push(newTransaccion);
+    const jsonTransacciones = JSON.stringify(transacciones);
+    fs.writeFileSync('src/transaccion.json', jsonTransacciones, 'utf-8');
     res.redirect('/');
 
-});
-
-router.post('/mi-cuentaBank', (req, res) => {
-    const { titular, ci, banco, monto } = req.body;
-    if (!titular || !ci || !banco || !monto) {
-        res.status(400).send('Entries must have a title and description');
-        return;
-    }
-
-    let newCuenta = {
-        "cuenta": {
-            id: uuidv4(),
-            titular,
-            ci,
-            banco,
-            monto
-        }
-    }
-    cuentas.push(newCuenta);
-    const jsonCuentas = JSON.stringify(cuentas);
-    fs.writeFileSync('src/cuenta.json', jsonCuentas, 'utf-8');
-    res.redirect('/');
-
-});
-
-router.get('/delete/:id', (req, res) => {
-    books = books.filter(book => book.user.id != req.params.id);
-    const jsonBooks = JSON.stringify(books);
-    fs.writeFileSync('src/books.json', jsonBooks, 'utf-8');
-    res.redirect('/');
 });
 
 
