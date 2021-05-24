@@ -3,7 +3,11 @@
         "cuenta": {
             "id": 1201245,
             "titular": "Evelyn Pintado",
+<<<<<<< HEAD
+            "ci": "1720171337",
+=======
             "ci": "0152127512",
+>>>>>>> 0069cbfa0938cd3480f05151c8ea246f6f96b48b
             "banco": "Ban Ecuador",
             "monto": 1010
         }
