@@ -84,9 +84,9 @@
                                 <option>Ban Ecuador</option>
                             </select>
                         </div>
+                        {{tipo}}
 
-
-                        <div class="form-group">
+                        <div class="form-group" *ngIf="tipo == 'Transferencia'">
                             <label for="exampleFormControlSelect1">Banco destino</label>
                             <select class="form-control" id="exampleFormControlSelect1" formControlName="bandest">
                                 <option>Banco del Pacifico</option>
