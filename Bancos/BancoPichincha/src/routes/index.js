@@ -59,6 +59,46 @@ router.post('/despositoExec',(req,res)=>{
     res.send(req.body);
    });
 
+
+router.post('/comprobarFondos',(req,res)=>{
+    console.log("Parametros",req.body);
+    var monto = req.body.monto;
+    var tipo = req.body.tipo;
+    var bancodest = req.body.bancodest;
+    var bancoorigen = req.body.bancoorigen;
+
+    if(parseFloat(monto)>parseFloat(cuentas[0].cuenta.monto)){
+        alert('No tiene suficientes fondos');
+
+    }else{
+        let updateCuenta = {
+            "cuenta": {
+                id: cuentas[0].cuenta.id,
+                titular: cuentas[0].cuenta.titular,
+                ci: cuentas[0].cuenta.ci,
+                banco: cuentas[0].cuenta.banco,
+                monto: parseFloat(cuentas[0].cuenta.monto) - parseFloat(monto)
+            }
+    
+        }
+
+        cuentas = cuentas.filter(cuenta => cuenta.cuenta.id != 1);
+        const jsnCuentas = JSON.stringify(cuentas);
+        fs.writeFileSync('src/cuenta.json', jsnCuentas, 'utf-8');
+    
+        cuentas.push(updateCuenta);
+        const jsnCuentasE = JSON.stringify(cuentas);
+        fs.writeFileSync('src/cuenta.json', jsnCuentasE, 'utf-8');
+        res.send(req.body);
+    }
+
+    res.send();
+});
+
+
+
+
+
 router.post('/deposito', (req, res) => {
 
     const { cantidad } = req.body;
