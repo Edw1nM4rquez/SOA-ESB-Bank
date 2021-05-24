@@ -13,7 +13,7 @@ const jsoncuenta = fs.readFileSync('src/cuenta.json', 'utf-8')
 let cuentas = JSON.parse(jsoncuenta);
 
 
-const jsontransacciones = fs.readFileSync('src/transacciones.json', 'utf-8')
+const jsontransacciones = fs.readFileSync('src/transaccion.json', 'utf-8')
 let transacciones = JSON.parse(jsontransacciones);
 
 
