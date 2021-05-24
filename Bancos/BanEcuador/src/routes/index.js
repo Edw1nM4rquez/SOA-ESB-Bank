@@ -106,6 +106,7 @@ router.post('/transferencia', function (req, res) {
             tipo,
             bancodest,
             bancoorigen
+            
         }
     }
 
